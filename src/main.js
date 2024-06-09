@@ -97,7 +97,12 @@ function fetchImages() {
             smoothScroll();
         })
         .catch(err => {
-            console.log(err);
+            iziToast.error({
+                message: `Woops, something went wrong: ${err.message}`,
+                position: 'topRight',
+                backgroundColor: 'red',
+                messageColor: 'white',
+            });
             loader.style.display = 'none';
             loadMoreBtn.disabled = false;
         });
